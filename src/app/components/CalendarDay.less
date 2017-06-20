@@ -1,17 +1,30 @@
 .calendar__day {
-  &__date {
+  display: flex;
+  justify-content: space-between;
 
+  &__date {
+    padding:15px;
+    background-color: lightyellow;
+    border-bottom: 1px solid grey;
   }
 
   &__task {
+    background-color: lightyellow;
+    flex-grow: 1;
+    border-left: 1px solid brown;
+    border-bottom: 1px solid grey;
+
     &--blocked {
+      background-color: lightgrey;
+      height:100%;
+      width:100%;
 
     }
     &--description {
-
+      padding: 15px;
     }
     &--input {
-
+      padding: 15px;
     }
   } 
 }

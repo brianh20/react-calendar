@@ -5,22 +5,33 @@ export class CalendarDay extends React.Component {
     super();
   }
 
+  removeTask() {
+    this.props.removeTaskFromState(this.props.data);
+  }
+
   render() {
     return (
       <div className="calendar__day">
         <div className="calendar__day__date">
-          Date: 
           {this.props.data.date}
         </div>
         <div className="calendar__day__task">
-          Task: 
           {this.props.data.blocked ? (
-            <div className="calendar__day__task--blocked">SHOW BLOCKED</div>
+            <div className="calendar__day__task--blocked"></div>
           ) : (
             this.props.data.task ? (
-              <div className="calendar__day__task--description">SHOW TASK</div>
+              <div className="calendar__day__task__description">
+                <div className="calendar__day__task__description--text">
+                  {this.props.data.task}
+                </div>
+                <div className="calendar__day__task__description--delete">
+                  <button onClick={this.removeTask.bind(this)}>X</button>
+                </div>
+              </div>
             ) : (
-              <div className="calendar__day__task--input">SHOW INPUT</div>
+              <div className="calendar__day__task--input">
+                <input type="text"/> <button onClick={this.addTask.bind(this)}>Save</button>
+              </div>
             )
           )}
         </div>
@@ -28,8 +39,3 @@ export class CalendarDay extends React.Component {
     );
   }
 }
-
-
-
-// <div className="calendar__day__status">Blocked: {(this.props.data.blocked ? 'blocked' : 'available')}
-// </div>
