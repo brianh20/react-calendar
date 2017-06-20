@@ -45,30 +45,30 @@ class Calendar extends React.Component {
     let month = moment().month();
     let today = moment().date();
     let lastDay = moment().endOf('month').get('date');
-    
-        //Add object to calendar array for each day of the month
-        for (let day = 1; day <= lastDay; day++) {
-          calendar.push({
-            date: moment().year(year).month(month).date(day).format('DD-MM-YYYY'),  //Date for description
-            task: ((day == today) ? 'sometask' : null),                                                             //Task as null
-            blocked: ((day < today) ? true : false)                                 //Block when prior to current day
-          });
-        }
-    
-        return calendar;
-      }
-    
-      render() {
-    
-        //Map days from calendar to view
-        let calendarDays = this.state.calendar.map((item, index) => {
-          return (
-            <CalendarDay 
-              data={item} 
-              key={index} 
-              addTaskToState={this.addTaskToState.bind(this, index, data)}
-              removeTaskFromState={this.removeTaskFromState.bind(this, index)}>
-            </CalendarDay>
+
+    //Add object to calendar array for each day of the month
+    for (let day = 1; day <= lastDay; day++) {
+      calendar.push({
+        date: moment().year(year).month(month).date(day).format('DD-MM-YYYY'),  //Date for description
+        task: undefined,                                                        //Task as null
+        blocked: ((day < today) ? true : false)                                 //Block when prior to current day
+      });
+    }
+
+    return calendar;
+  }
+
+  render() {
+
+    //Map days from calendar to view
+    let calendarDays = this.state.calendar.map((item, index) => {
+      return (
+        <CalendarDay 
+          data={item} 
+          key={index} 
+          addTaskToState={this.addTaskToState.bind(this, index)}
+          removeTaskFromState={this.removeTaskFromState.bind(this, index)}>
+        </CalendarDay>
       );
     });
 
