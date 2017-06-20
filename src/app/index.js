@@ -50,6 +50,7 @@ class Calendar extends React.Component {
     for (let day = 1; day <= lastDay; day++) {
       calendar.push({
         date: moment().year(year).month(month).date(day).format('DD-MM-YYYY'),  //Date for description
+        day: day,
         task: undefined,                                                        //Task as null
         blocked: ((day < today) ? true : false)                                 //Block when prior to current day
       });
@@ -74,11 +75,13 @@ class Calendar extends React.Component {
 
     //Rendear Calendar App
     return(
-      <div className="calendar">
+      <div>
         <div className="calendar__header">
           <span className="calendar__header--month">{moment().format('MMMM').toUpperCase()}</span>
         </div>
-        {calendarDays}        
+        <div className="calendar">
+          {calendarDays}        
+        </div>
       </div>
     );
   }

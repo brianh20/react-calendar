@@ -34,7 +34,7 @@ export class CalendarDay extends React.Component {
     return (
       <div className="calendar__day">
         <div className="calendar__day__date">
-          {this.props.data.date}
+          {this.props.data.day}
         </div>
         <div className="calendar__day__task">
           {this.props.data.blocked ? (
@@ -42,17 +42,25 @@ export class CalendarDay extends React.Component {
           ) : (
             this.props.data.task ? (
               <div className="calendar__day__task__description">
-                <div className="calendar__day__task__description--text">
+                <div className="calendar__day__task__description__text">
                   {this.props.data.task}
                 </div>
-                <div className="calendar__day__task__description--delete">
-                  <button onClick={this.editTask.bind(this)}>Edit</button>
-                  <button onClick={this.removeTask.bind(this)}>Delete</button>
+                <div className="calendar__day__task__description__controls">
+                  <button 
+                    className="calendar__day__task__description__controls--edit" 
+                    onClick={this.editTask.bind(this)}>Edit</button>
+                  <button 
+                    className="calendar__day__task__description__controls--delete" 
+                    onClick={this.removeTask.bind(this)}>Delete</button>
                 </div>
               </div>
             ) : (
-              <div className="calendar__day__task--input">
-                <input type="text" value={this.state.taskInput} onChange={this.handleTaskInput.bind(this)}/> 
+              <div className="calendar__day__task__input">
+                <input 
+                  type="text" 
+                  maxLength="60"
+                  value={this.state.taskInput} 
+                  onChange={this.handleTaskInput.bind(this)}/> 
                 <button onClick={this.addTask.bind(this)}>Save</button>
               </div>
             )

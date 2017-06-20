@@ -4,12 +4,16 @@
 
   &__date {
     padding:15px;
-    background-color: lightyellow;
-    border-bottom: 1px solid grey;
+    background-color: @nice-blue;
+    border-bottom: 1px solid @grey;
+    min-width:20px;
+    max-width:20px;
+    text-align: center;
+    color: @white;
   }
 
   &__task {
-    background-color: lightyellow;
+    background-color: @avail-blue;
     flex-grow: 1;
     border-left: 1px solid brown;
     border-bottom: 1px solid grey;
@@ -20,11 +24,42 @@
       width:100%;
 
     }
-    &--description {
+    &__description {
       padding: 15px;
+      display: flex;
+      
+      justify-content: space-between;
+      
+      &__text {
+        word-wrap: break-word;
+        padding-right: 46px;
+      }
+      &__controls {
+        min-width: 60px;
+        display: flex;
+        justify-content: flex-end;
+        flex-grow: 1;
+
+        &--edit, &--delete{
+          
+          margin-top: 5px;
+          margin-bottom: 5px;
+          min-width: 45px;
+        }
+      }
     }
-    &--input {
+    &__input {
+      display: flex;
+      justify-content: space-between;
+
       padding: 15px;
+      input {
+        width: 100%;
+      }
+      button {
+        min-width: 90px;
+        margin-left:15px;
+      }
     }
   } 
 }
