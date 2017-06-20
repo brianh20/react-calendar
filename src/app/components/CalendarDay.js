@@ -8,13 +8,14 @@ export class CalendarDay extends React.Component {
     };
   }
 
-
+  // Handle text input
   handleTaskInput (event) {
     this.setState({
       taskInput: event.target.value
     });
   }
 
+  // Actions to parent making this a stateless component
   addTask() {
     this.props.addTaskToState(this.state.taskInput);
   }
@@ -30,6 +31,7 @@ export class CalendarDay extends React.Component {
     });
   }
 
+  // Day render
   render() {
     return (
       <div className="calendar__day">
