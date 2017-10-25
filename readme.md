@@ -6,7 +6,7 @@ Clicking on delete/remove must also clear the input box.
 
 Requirements:
 * Node package manager.
-* Yarn - if you do not wish to install yarn, you might need to run 'npm install' a few times depending on your configuration.
+* Yarn.
 
 Steps to run project:
 
