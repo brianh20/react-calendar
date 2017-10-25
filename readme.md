@@ -1,3 +1,9 @@
+# Application Description:
+The application requested is a responsive calendar for current month where days passed are blocked.
+You must be able to add a single task to any day that is not blocked.
+Clicking on edit must delete/remove the task from state but save it in the input box.
+Clicking on delete/remove must also clear the input box.
+
 Requirements:
 * Node
 * Yarn
